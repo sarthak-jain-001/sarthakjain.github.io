@@ -3,7 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sarthak Jain</title>
+
+  <title>Sarthak Jain — Data Scientist, Flinders University, Adelaide</title>
+  <meta name="description" content="Sarthak Jain is a data scientist and ML researcher at Flinders University, Adelaide. Background in software engineering, data science, and machine learning. Ludhiana.">
+
+  <link rel="canonical" href="https://sarthakjain-sj.github.io/">
+
+  <meta property="og:title" content="Sarthak Jain — Data Scientist & ML Researcher">
+  <meta property="og:description" content="Data scientist and ML researcher at Flinders University, Adelaide.">
+  <meta property="og:url" content="https://sarthakjain-sj.github.io/">
+  <meta property="og:image" content="https://sarthakjain-sj.github.io/profile.png">
+  <meta property="og:type" content="website">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Sarthak Jain",
+    "jobTitle": "Data Scientist",
+    "url": "https://sarthakjain-sj.github.io/",
+    "image": "https://sarthakjain-sj.github.io/profile.png",
+    "worksFor": { "@type": "Organization", "name": "Flinders University" },
+    "homeLocation": { "@type": "Place", "name": "Adelaide, South Australia" },
+    "alumniOf": { "@type": "Organization", "name": "University of Adelaide",  "@type": "Organization", "name": "Adelaide University" },
+    "knowsAbout": ["Data Science", "Machine Learning", "Artificial Intelligence", "Software Engineering"],
+    "sameAs": [
+      "https://www.flinders.edu.au/people/sarthak.jain",
+      "https://www.linkedin.com/in/sarthak-jain01/",
+      "https://github.com/sarthakjain-sj"
+    ]
+  }
+  </script>
+
   <style>
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -14,48 +45,42 @@
       padding: 60px 24px;
       background: #fdfdfd;
     }
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 4px;
-    }
-    .subtitle {
-      color: #555;
-      font-size: 1.05rem;
-      margin-top: 0;
-    }
-    h2 {
-      font-size: 1.1rem;
-      margin-top: 40px;
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 24px;
       margin-bottom: 8px;
-      color: #222;
     }
-    p {
-      margin: 12px 0;
+    .header img {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
     }
-    a {
-      color: #2563eb;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    .links {
-      margin-top: 16px;
-    }
-    .links a {
-      margin-right: 18px;
-    }
-    footer {
-      margin-top: 50px;
-      font-size: 0.85rem;
-      color: #999;
+    h1 { font-size: 2rem; margin: 0 0 4px; }
+    .subtitle { color: #555; font-size: 1.05rem; margin: 0; }
+    h2 { font-size: 1.1rem; margin: 40px 0 8px; color: #222; }
+    p { margin: 12px 0; }
+    a { color: #2563eb; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .links { margin-top: 16px; }
+    .links a { margin-right: 18px; }
+    footer { margin-top: 50px; font-size: 0.85rem; color: #999; }
+    @media (max-width: 480px) {
+      .header { flex-direction: column; align-items: flex-start; gap: 16px; }
     }
   </style>
 </head>
 <body>
 
-  <h1>Sarthak Jain</h1>
-  <p class="subtitle">Data Scientist · Software Engineer · ML Research</p>
+  <div class="header">
+    <img src="profile.png" alt="Sarthak Jain">
+    <div>
+      <h1>Sarthak Jain</h1>
+      <p class="subtitle">Data Scientist · Software Engineer · ML Research</p>
+    </div>
+  </div>
 
   <div class="links">
     <a href="mailto:sarthak.sj@outlook.com">Email</a>
@@ -87,10 +112,9 @@
     Applied machine learning, clinical data analysis and data-driven innovation.
     I am open to connecting with people.
   </p>
-
+  
   <footer>
     © 2026 Sarthak Jain · Adelaide, Australia
   </footer>
-
 </body>
 </html>
