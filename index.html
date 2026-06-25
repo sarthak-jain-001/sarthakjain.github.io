@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Sarthak Jain — Data Scientist, Flinders University, Adelaide</title>
-  <meta name="description" content="Sarthak Jain is a data scientist and ML researcher at Flinders University, Adelaide. Background in software engineering, data science, and machine learning. Ludhiana.">
+  <meta name="description" content="Sarthak Jain is a data scientist and ML researcher at Flinders University, Adelaide. Background in software engineering, data science, and machine learning. Originally from Ludhiana.">
 
   <link rel="canonical" href="https://sarthakjain-sj.github.io/">
 
@@ -25,96 +25,261 @@
     "image": "https://sarthakjain-sj.github.io/profile.png",
     "worksFor": { "@type": "Organization", "name": "Flinders University" },
     "homeLocation": { "@type": "Place", "name": "Adelaide, South Australia" },
-    "alumniOf": { "@type": "Organization", "name": "University of Adelaide",  "@type": "Organization", "name": "Adelaide University" },
+    "alumniOf": { "@type": "Organization", "name": "University of Adelaide" },
     "knowsAbout": ["Data Science", "Machine Learning", "Artificial Intelligence", "Software Engineering"],
     "sameAs": [
       "https://www.flinders.edu.au/people/sarthak.jain",
-      "https://www.linkedin.com/in/sarthak-jain01/",
+      "https://au.linkedin.com/in/sarthak-jain01",
       "https://github.com/sarthakjain-sj"
     ]
   }
   </script>
 
   <style>
+    :root {
+      --bg: #fbfbfd;
+      --surface: #ffffff;
+      --text: #1a1a1f;
+      --muted: #6b6b76;
+      --accent: #5b4bd6;
+      --accent-soft: #ece9fb;
+      --border: rgba(0,0,0,0.08);
+    }
+    html[data-theme="dark"] {
+      --bg: #0c0c12;
+      --surface: #15151f;
+      --text: #f0f0f5;
+      --muted: #9a9aa8;
+      --accent: #8b7dff;
+      --accent-soft: #1d1b33;
+      --border: rgba(255,255,255,0.1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      color: #1a1a1a;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
       line-height: 1.65;
-      max-width: 680px;
-      margin: 0 auto;
-      padding: 60px 24px;
-      background: #fdfdfd;
+      -webkit-font-smoothing: antialiased;
+      transition: background 0.4s ease, color 0.4s ease;
+      overflow-x: hidden;
     }
-    .header {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      margin-bottom: 8px;
-    }
-    .header img {
-      width: 96px;
-      height: 96px;
+
+    .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+    /* animated gradient blob backdrop */
+    .blob {
+      position: fixed;
+      top: -200px; right: -200px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+      opacity: 0.12;
+      filter: blur(40px);
       border-radius: 50%;
-      object-fit: cover;
-      flex-shrink: 0;
+      z-index: 0;
+      animation: float 14s ease-in-out infinite;
+      pointer-events: none;
     }
-    h1 { font-size: 2rem; margin: 0 0 4px; }
-    .subtitle { color: #555; font-size: 1.05rem; margin: 0; }
-    h2 { font-size: 1.1rem; margin: 40px 0 8px; color: #222; }
-    p { margin: 12px 0; }
-    a { color: #2563eb; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .links { margin-top: 16px; }
-    .links a { margin-right: 18px; }
-    footer { margin-top: 50px; font-size: 0.85rem; color: #999; }
-    @media (max-width: 480px) {
-      .header { flex-direction: column; align-items: flex-start; gap: 16px; }
+    @keyframes float {
+      0%,100% { transform: translate(0,0) scale(1); }
+      50% { transform: translate(-60px,80px) scale(1.15); }
+    }
+
+    /* theme toggle */
+    .toggle {
+      position: fixed; top: 20px; right: 20px; z-index: 10;
+      width: 42px; height: 42px; border-radius: 50%;
+      border: 1px solid var(--border); background: var(--surface);
+      color: var(--text); cursor: pointer; font-size: 18px;
+      display: flex; align-items: center; justify-content: center;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+    .toggle:hover { transform: rotate(25deg) scale(1.1); }
+
+    /* hero */
+    .hero { padding: 90px 0 50px; position: relative; z-index: 1; }
+    .hero-top { display: flex; align-items: center; gap: 26px; flex-wrap: wrap; }
+    .photo {
+      width: 108px; height: 108px; border-radius: 50%;
+      object-fit: cover; border: 3px solid var(--surface);
+      box-shadow: 0 8px 30px rgba(91,75,214,0.25);
+      flex-shrink: 0;
+      animation: pop 0.7s cubic-bezier(.18,.89,.32,1.28) both;
+    }
+    @keyframes pop { from { opacity:0; transform: scale(0.6);} to {opacity:1; transform: scale(1);} }
+
+    h1 {
+      font-size: clamp(2.2rem, 6vw, 3.2rem);
+      font-weight: 700; letter-spacing: -0.02em; line-height: 1.05;
+    }
+    .tagline {
+      font-size: 1.1rem; color: var(--accent); margin-top: 8px;
+      font-weight: 500; min-height: 1.5em;
+    }
+    .cursor { display:inline-block; width:2px; background: var(--accent); margin-left:2px; animation: blink 1s steps(2) infinite; }
+    @keyframes blink { 0%,50%{opacity:1;} 51%,100%{opacity:0;} }
+
+    .intro { font-size: 1.2rem; line-height: 1.6; margin-top: 28px; max-width: 600px; color: var(--text); }
+    .intro b { color: var(--accent); font-weight: 600; }
+
+    /* link pills */
+    .links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    .pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 1.5px solid var(--border); color: var(--text);
+      padding: 9px 18px; border-radius: 999px; font-size: 0.92rem;
+      text-decoration: none; background: var(--surface);
+      transition: all 0.25s ease;
+    }
+    .pill:hover {
+      border-color: var(--accent); color: var(--accent);
+      transform: translateY(-3px); box-shadow: 0 6px 18px rgba(91,75,214,0.2);
+    }
+
+    /* sections */
+    section { padding: 38px 0; position: relative; z-index: 1; }
+    .label {
+      font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.12em;
+      color: var(--accent); font-weight: 600; margin-bottom: 14px;
+    }
+    section p { font-size: 1.05rem; color: var(--text); max-width: 620px; margin-bottom: 14px; }
+
+    /* skill chips */
+    .chips { display:flex; flex-wrap:wrap; gap:10px; margin-top:6px; }
+    .chip {
+      background: var(--accent-soft); color: var(--accent);
+      padding: 7px 15px; border-radius: 8px; font-size: 0.88rem; font-weight: 500;
+    }
+
+    .divider { height:1px; background: var(--border); margin: 0; }
+
+    footer { padding: 40px 0 60px; color: var(--muted); font-size: 0.85rem; position: relative; z-index:1; }
+
+    /* scroll reveal */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.show { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 520px) {
+      .hero-top { flex-direction: column; align-items: flex-start; gap: 18px; }
+      .hero { padding-top: 70px; }
     }
   </style>
 </head>
 <body>
 
-  <div class="header">
-    <img src="profile.png" alt="Sarthak Jain">
-    <div>
-      <h1>Sarthak Jain</h1>
-      <p class="subtitle">Data Scientist · Software Engineer · ML Research</p>
-    </div>
+  <div class="blob"></div>
+  <button class="toggle" id="themeBtn" aria-label="Toggle dark mode">🌙</button>
+
+  <div class="wrap">
+
+    <header class="hero">
+      <div class="hero-top">
+        <img class="photo" src="profile.png" alt="Sarthak Jain">
+        <div>
+          <h1>Sarthak Jain</h1>
+          <div class="tagline"><span id="type"></span><span class="cursor">&nbsp;</span></div>
+        </div>
+      </div>
+
+      <p class="intro">
+        I build data-driven systems at <b>Flinders University</b>, working at the
+        intersection of machine learning, healthcare, and software engineering.
+      </p>
+
+      <nav class="links">
+        <a class="pill" href="mailto:sarthak.sj@outlook.com">✉ Email</a>
+        <a class="pill" href="https://www.flinders.edu.au/people/sarthak.jain" target="_blank" rel="noopener">🎓 Flinders</a>
+        <a class="pill" href="https://github.com/sarthakjain-sj" target="_blank" rel="noopener">⌨ GitHub</a>
+        <a class="pill" href="https://au.linkedin.com/in/sarthak-jain01" target="_blank" rel="noopener">in LinkedIn</a>
+      </nav>
+    </header>
+
+    <div class="divider"></div>
+
+    <section class="reveal">
+      <div class="label">About</div>
+      <p>
+        I am a data scientist and research assistant in the College of Science and
+        Engineering at Flinders University, with a background in software engineering
+        and computer science and a focus on data science and machine learning.
+      </p>
+      <p>
+        My work spans industry projects and applied research, and I have recently
+        moved into healthcare data science. I am interested in using data-driven
+        methods to support research, improve decision-making, and build practical
+        solutions, particularly in healthcare and fintech.
+      </p>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="reveal">
+      <div class="label">What I work with</div>
+      <div class="chips">
+        <span class="chip">Python</span>
+        <span class="chip">Machine Learning</span>
+        <span class="chip">Data Science</span>
+        <span class="chip">SQL</span>
+        <span class="chip">Healthcare AI</span>
+        <span class="chip">Software Engineering</span>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="reveal">
+      <div class="label">Education</div>
+      <p>Bachelor of Computer Science, University of Adelaide</p>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="reveal">
+      <div class="label">Interests</div>
+      <p>
+        Applied machine learning, clinical data analysis, and data-driven
+        innovation. I am open to connecting with people.
+      </p>
+    </section>
+
+    <footer class="reveal">© 2026 Sarthak Jain · Adelaide, Australia</footer>
+
   </div>
 
-  <div class="links">
-    <a href="mailto:sarthak.sj@outlook.com">Email</a>
-    <a href="https://www.flinders.edu.au/people/sarthak.jain">Flinders Profile</a>
-    <a href="sarthakjain-sj.github.io">GitHub</a>
-    <a href="https://au.linkedin.com/in/sarthak-jain01">LinkedIn</a>
-  </div>
+  <script>
+    // typing effect
+    var phrases = ["Data Scientist", "ML Researcher", "Software Engineer"];
+    var el = document.getElementById("type");
+    var p = 0, c = 0, deleting = false;
+    function type() {
+      var word = phrases[p];
+      el.textContent = deleting ? word.substring(0, c--) : word.substring(0, c++);
+      if (!deleting && c === word.length + 1) { deleting = true; setTimeout(type, 1400); return; }
+      if (deleting && c === 0) { deleting = false; p = (p + 1) % phrases.length; }
+      setTimeout(type, deleting ? 45 : 90);
+    }
+    type();
 
-  <h2>About</h2>
-  <p>
-    I am a data scientist and research assistant in the College of Science and
-    Engineering at Flinders University, with a background in software engineering
-    and computer science and a focus on data science and machine learning.
-  </p>
-  <p>
-    My work spans industry projects and applied research, and I have recently moved
-    into healthcare data science. I am interested in using data-driven methods to
-    support research, improve decision-making and build practical solutions,
-    particularly in healthcare and fintech.
-  </p>
+    // theme toggle
+    var btn = document.getElementById("themeBtn");
+    var root = document.documentElement;
+    if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      root.setAttribute("data-theme", "dark"); btn.textContent = "☀";
+    }
+    btn.addEventListener("click", function() {
+      var dark = root.getAttribute("data-theme") === "dark";
+      root.setAttribute("data-theme", dark ? "light" : "dark");
+      btn.textContent = dark ? "🌙" : "☀";
+    });
 
-  <h2>Education</h2>
-  <p>
-    Bachelor of Computer Science, University of Adelaide
-  </p>
+    // scroll reveal
+    var obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add("show"); });
+    }, { threshold: 0.15 });
+    document.querySelectorAll(".reveal").forEach(function(s) { obs.observe(s); });
+  </script>
 
-  <h2>Interests</h2>
-  <p>
-    Applied machine learning, clinical data analysis and data-driven innovation.
-    I am open to connecting with people.
-  </p>
-  
-  <footer>
-    © 2026 Sarthak Jain · Adelaide, Australia
-  </footer>
 </body>
 </html>
